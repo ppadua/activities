@@ -167,6 +167,8 @@ $(document).ready(function(){
 	$("body").on("changed.bs.select", "#assigned_to_select", function(){
 		var assignee = $(this);
 
+		console.log(assignee)
+
 		for (var i = 0; i < tasks.length; i++) {
 			if(tasks[i].task_id == assignee.closest(".header").find("input[name=task_id]").val()){
 				if( assignee.closest(".header").find("input[name=sub_task_id]").val() == ""){
@@ -190,7 +192,6 @@ $(document).ready(function(){
 				save_changes();
 			}
 		}
-
 	});
 
 	$("body").on("keyup", ".estimated_points input, .task_title input", function(){
@@ -208,7 +209,6 @@ $(document).ready(function(){
 				save_changes();
 			}
 		}
-
 	});
 
 	$("body").on("blur", ".task_title input", function(){
@@ -311,7 +311,6 @@ $(document).ready(function(){
 				}
 			}
 		}
-
 	});
 
 	$("body").on("click", ".project_tag_see_more, .main_project_tag", function(){
@@ -348,7 +347,6 @@ $(document).ready(function(){
 			project_tag.popover("show");
 		}, 250)
 	});
-
 
 	$("body").on("submit", "#delete_project_tag", function(){
 		var project_tag = $(this);
@@ -511,6 +509,19 @@ $(document).ready(function(){
 			$(main_task_pending).find(".main_task_detail_select").selectpicker();
 			$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 1);
 		}
+		// else if(task_status.find("option:selected").val() == 3 && $("#main_tasks li[data-task-id="+task_id+"]").closest("#product_backlog_sort").length == 1){
+		// 	$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_status_select").selectpicker("destroy");
+		// 	$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_detail_select").selectpicker("destroy");
+			
+		// 	var main_task_pending = $("#main_tasks li[data-task-id="+task_id+"]").clone();
+		// 	$("#main_tasks li[data-task-id="+task_id+"]").remove();	
+		// 	$("#sprint_cycle_sort").prepend(main_task_pending);
+
+		// 	$(main_task_pending).find(".check_icon .fa-check-circle-o").removeClass("fa-check-circle-o").addClass("fa-check-circle");
+		// 	$(main_task_pending).find(".main_task_detail_select").selectpicker();
+		// 	$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 3);
+		// 	$(main_task_pending).click();
+		// }
 
 		save_changes();
 		update_main_task_index(".main_sort");
@@ -640,6 +651,10 @@ function sorting_element(element){
 		handle:      'i.fa-sort',
 		placeholder: 'sort-placeholder',
 		connectWith: connectwith,
+		receive: function(ev, ui) {
+            if(ui.item.hasClass("unsortable"))
+              ui.sender.sortable("cancel");
+        },
 		forcePlaceholderSize: true, 
 		start: function( e, ui ){
        		ui.item.data( 'start-pos', ui.item.index()+1);
@@ -730,7 +745,7 @@ var main_project_tag_template = _.template('<% if(main_project_tag.length != 0){
 												<% } %>\
 											<% } %>');
 												
-var main_task_template = _.template('<li data-task-id="<%= task_id %>">\
+var main_task_template = _.template('<li data-task-id="<%= task_id %>" class="<%= task_detail == 2 ? "unsortable" : "" %>">\
 								<form action="">\
 									<div class="task_container">\
 										<div class="task_index">\
