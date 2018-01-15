@@ -181,11 +181,12 @@ $(document).ready(function(){
 				else{
 					var subtask_index = tasks[i].sub_tasks.map(a => a.sub_task_id).indexOf(parseInt(assignee.closest(".header").find("input[name=sub_task_id]").val()));
 					tasks[i].sub_tasks[subtask_index].main_assigned_to_img = "../assets/images/"+assignee.find("option:selected").attr("data-image-name")+".jpg";
+					tasks[i].sub_tasks[subtask_index].main_assigned_to_name = assignee.find("option:selected").text();
 					tasks[i].sub_tasks[subtask_index].main_assigned_to_id = parseInt(assignee.val());
 
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to img").attr("src", tasks[i].main_assigned_person_image );
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"]").trigger("click");
-					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to span").text($("#add_sub_task_details .person_assigned_to").length)
+					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to span").text($("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").length)
 					break;
 				}
 
@@ -233,6 +234,7 @@ $(document).ready(function(){
 			"subtask_estimated_points": 0,
 			"main_assigned_to_id" : 0,
 			"main_assigned_to_img" : "../assets/images/no_image.png",
+			"main_assigned_to_name" : "",
 			"subtask_title" : "",
 			"sub_task_id" : id_generator,
 			"project_id" : 1,
@@ -436,13 +438,36 @@ $(document).ready(function(){
 
 			setTimeout(function(){
 				if($("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").length == 0)
-					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").addClass("is_zero")
+					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").addClass("is_zero");
 				else{
-					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").removeClass("is_zero")
-					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").text($("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").length)
+					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").removeClass("is_zero").addClass("is_not_zero");
+					$("#main_tasks li[data-task-id="+main_task_id+"] .task_assigned_to span").text($("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").length);
 				}
 			}, 150)
 		} 
+	});
+
+	$("body").on("click", ".task_assigned_to .is_not_zero", function(){
+		var user_tag = $(this);
+		var append_user = "";
+
+		setTimeout(function(){
+			$("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").each(function(){
+				append_user += "<li>"+$(this).find("img").attr("data-user-name")+"</li>";
+			});
+
+			$("#hidden_sub_user_assignee ul").empty().append(append_user);
+
+			user_tag.popover({
+				html : true,
+				placement: 'bottom',
+				content: $("#hidden_sub_user_assignee").html(),
+				container: "body"
+			});
+
+			user_tag.popover("show");
+		}, 150)
+		
 	});
 
 	$("body").on("click", ".remove_project_tag", function(){
@@ -560,17 +585,20 @@ $(document).ready(function(){
 			if(tasks[i].task_id == assignee.closest(".header").find("input[name=task_id]").val()){
 				if( assignee.closest(".header").find("input[name=sub_task_id]").val() == ""){
 					tasks[i].main_assigned_person_image = "../assets/images/"+assignee.attr("data-assignee-image")+".jpg";
+					tasks[i].main_assigned_person_name = assignee.attr("data-assignee-name");
 					tasks[i].main_assigned_person_id = assignee.attr("data-assignee-id");
-
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to img").attr("src", tasks[i].main_assigned_person_image );
+					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to img").attr("data-user-name", tasks[i].main_assigned_person_name);
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"]").trigger("click");
 				}
 				else{
 					var subtask_index = tasks[i].sub_tasks.map(a => a.sub_task_id).indexOf(parseInt(assignee.closest(".header").find("input[name=sub_task_id]").val()));
 					tasks[i].sub_tasks[subtask_index].main_assigned_to_img = "../assets/images/"+assignee.attr("data-assignee-image")+".jpg";
+					tasks[i].sub_tasks[subtask_index].main_assigned_to_name = assignee.attr("data-assignee-name");
 					tasks[i].sub_tasks[subtask_index].main_assigned_to_id = parseInt( assignee.attr("data-assignee-id"));
 
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to img").attr("src", tasks[i].main_assigned_person_image );
+					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to img").attr("data-user-name", tasks[i].main_assigned_person_name);
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"]").trigger("click");
 					$("#main_tasks li[data-task-id="+tasks[i].task_id+"] .task_assigned_to span").text($("#add_sub_task_details .person_assigned_to").not(".main_person_assigned").length)
 					break;
@@ -801,7 +829,7 @@ var main_task_template = _.template('<li data-task-id="<%= task_id %>" class="<%
 													index_count++\
 											}\
 											%>\
-											<span class="<%= index_count == 0 ? "is_zero" : ""  %>">\
+											<span class="<%= index_count == 0 ? "is_zero" : "is_not_zero"  %>">\
 											<%= index_count == 0 ? "" : index_count %>\
 											</span>\
 										</div>\
@@ -859,7 +887,7 @@ var main_details_template = _.template('<div id="add_sub_task">\
 							<% for(var i = 0; i < sub_task_assigned_ids.length; i++) {  %>\
 								<% if(sub_tasks[i].main_assigned_to_img != "../assets/images/no_image.png" && sub_tasks[i].main_assigned_to_id != main_assigned_person_id && sub_task_assigned_ids[i] != 0) {  %>\
 								<div class="person_assigned_to">\
-									<img src="<%= sub_tasks[i].main_assigned_to_img %>" alt="">\
+									<img src="<%= sub_tasks[i].main_assigned_to_img %>" data-user-name="<%= sub_tasks[i].main_assigned_to_name %>" alt="">\
 								</div>\
 								<% } %>	\
 							<% } %>	\

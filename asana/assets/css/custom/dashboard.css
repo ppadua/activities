@@ -337,7 +337,6 @@ body #main_container #main_content #right_content #add_sub_task #add_sub_task_de
 }
 html #main_container #main_content #right_content #add_sub_task #add_sub_task_details .person_assigned_to,
 body #main_container #main_content #right_content #add_sub_task #add_sub_task_details .person_assigned_to {
-  border: 1px solid black;
   border-radius: 100%;
   padding: 3px;
 }
@@ -345,6 +344,10 @@ html #main_container #main_content #right_content #add_sub_task #add_sub_task_de
 body #main_container #main_content #right_content #add_sub_task #add_sub_task_details .person_assigned_to img {
   width: 30px;
   border-radius: 100%;
+}
+html #main_container #main_content #right_content #add_sub_task #add_sub_task_details .main_person_assigned,
+body #main_container #main_content #right_content #add_sub_task #add_sub_task_details .main_person_assigned {
+  border: 1px solid #DDDDDD;
 }
 html #main_container #main_content #right_content #add_sub_task #add_sub_task_details #project_assigned_to ul,
 body #main_container #main_content #right_content #add_sub_task #add_sub_task_details #project_assigned_to ul {

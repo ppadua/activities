@@ -118,6 +118,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -158,6 +159,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -220,6 +222,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -277,6 +280,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -334,6 +338,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -391,6 +396,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -448,6 +454,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -505,6 +512,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -562,6 +570,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -619,6 +628,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -676,6 +686,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -733,6 +744,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -790,6 +802,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -847,6 +860,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -904,6 +918,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -961,6 +976,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -1018,6 +1034,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -1075,6 +1092,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -1132,6 +1150,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
@@ -1189,6 +1208,7 @@ var tasks = [
 		"task_description" : "test description here",
 		"main_assigned_person_id" :  1,
 		"main_assigned_person_image" : "../assets/images/john.jpg",
+		"main_assigned_person_name" : "John Supsupin",
 		"main_project_tag" : [
 			{
 				"project_id" : 1,
