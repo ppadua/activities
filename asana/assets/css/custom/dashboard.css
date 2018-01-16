@@ -178,6 +178,7 @@ body #main_container #main_content #left_content #main_tasks > ul > li .task_con
 }
 html #main_container #main_content #left_content #main_tasks > ul > li .task_container .estimated_points input,
 body #main_container #main_content #left_content #main_tasks > ul > li .task_container .estimated_points input {
+  text-align: center;
   border: 1px solid white;
   height: 24px;
   padding: 0px 2px !important;
@@ -420,6 +421,7 @@ body #main_container #main_content #right_content #main_task_status_and_details 
   width: 60px;
   height: 23px;
   margin-left: 10px;
+  text-align: center;
 }
 html #main_container #main_content #right_content #main_task_status_and_details #status_and_details .bootstrap-select,
 body #main_container #main_content #right_content #main_task_status_and_details #status_and_details .bootstrap-select {
@@ -497,6 +499,7 @@ body #main_container #main_content #right_content #sub_tasks_section > ul > li .
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .estimated_points input,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .estimated_points input {
+  text-align: center;
   border: 1px solid white;
   height: 24px;
   padding: 0px 2px !important;
@@ -538,7 +541,7 @@ body #main_container #main_content #right_content #sub_tasks_section > ul > li .
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_title,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_title {
-  width: 250px;
+  width: 276px;
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_title input,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_title input {
@@ -547,7 +550,7 @@ body #main_container #main_content #right_content #sub_tasks_section > ul > li .
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select {
-  width: 90px;
+  width: 62px;
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button {
@@ -557,6 +560,10 @@ body #main_container #main_content #right_content #sub_tasks_section > ul > li .
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button span,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button span {
   text-align: center;
+  height: 18px;
+  font-size: 11px;
+  line-height: 17px;
+  padding: 1px;
 }
 html #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button .bs-caret,
 body #main_container #main_content #right_content #sub_tasks_section > ul > li .task_container .task_assigned_to .bootstrap-select button .bs-caret {

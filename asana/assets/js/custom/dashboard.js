@@ -108,7 +108,16 @@ $(document).ready(function(){
 							$("#done_task_sort").append(main_task_pending);
 							$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 3);
 						}
-						
+					}
+
+					if(mark_task.closest("#product_backlog_sort") && task_status.find("option:selected").val()  == 3){
+						$(task_status).selectpicker("destroy");
+
+						var main_task_pending = $(task_status).closest("li").clone();
+						$(task_status).closest("li").remove();	
+						$("#sprint_cycle_sort").prepend(main_task_pending);
+						$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 3);
+						update_main_task_index(".main_sort");
 					}
 				}
 			}
@@ -206,10 +215,19 @@ $(document).ready(function(){
 					tasks[i].task_title = input_value.val();
 
 				$("#main_tasks li[data-task-id="+tasks[i].task_id+"]").trigger("click");
-				
-				save_changes();
 			}
+			else if(tasks[i].task_id == input_value.closest("#right_content").attr("data-main-task-id")){
+				var sub_task_id = tasks[i].sub_tasks.map(a => a.sub_task_id).indexOf(parseInt(input_value.closest("li").attr("data-sub-task-id")));
+
+				if(input_value.closest(".estimated_points").length == 1)
+					tasks[i].sub_tasks[sub_task_id].subtask_estimated_points = input_value.val();
+				else
+					tasks[i].sub_tasks[sub_task_id].subtask_title = input_value.val();
+			}
+
+			save_changes(tasks[i]);
 		}
+
 	});
 
 	$("body").on("blur", ".task_title input", function(){
@@ -242,11 +260,12 @@ $(document).ready(function(){
 		}
 
 		tasks[tasks.map(a => a.task_id).indexOf(parseInt(crud_add_subtask.closest("#right_content").attr("data-main-task-id")))].sub_tasks.push(json_data);
+		save_changes(tasks.map(a => a.task_id).indexOf(parseInt(crud_add_subtask.closest("#right_content").attr("data-main-task-id"))));
 
 		$("#remaining_task_sort").append(sub_task_template(json_data))
 		$("#sub_tasks_section .selectpicker").selectpicker();
 		update_main_task_index(".subtask_sort");
-		save_changes();
+
 	});
 
 	$("body").on("click", "#add_project_assigned_to", function(){
@@ -517,6 +536,7 @@ $(document).ready(function(){
 			$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_detail_select").selectpicker("destroy");
 
 			var main_task_pending = $("#main_tasks li[data-task-id="+task_id+"]").clone();
+			$(main_task_pending).find(".check_icon .fa-check-circle").removeClass("fa-check-circle").addClass("fa-check-circle-o");
 			$("#main_tasks li[data-task-id="+task_id+"]").remove();	
 			$("#product_backlog_sort").append(main_task_pending);
 
@@ -528,25 +548,26 @@ $(document).ready(function(){
 			$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_detail_select").selectpicker("destroy");
 			
 			var main_task_pending = $("#main_tasks li[data-task-id="+task_id+"]").clone();
+			$(main_task_pending).find(".check_icon .fa-check-circle").removeClass("fa-check-circle").addClass("fa-check-circle-o");
 			$("#main_tasks li[data-task-id="+task_id+"]").remove();	
 			$("#sprint_cycle_sort").append(main_task_pending);
 
 			$(main_task_pending).find(".main_task_detail_select").selectpicker();
 			$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 1);
 		}
-		// else if(task_status.find("option:selected").val() == 3 && $("#main_tasks li[data-task-id="+task_id+"]").closest("#product_backlog_sort").length == 1){
-		// 	$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_status_select").selectpicker("destroy");
-		// 	$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_detail_select").selectpicker("destroy");
+		else if(task_status.find("option:selected").val() == 3 && $("#main_tasks li[data-task-id="+task_id+"]").closest("#product_backlog_sort").length == 1){
+			$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_status_select").selectpicker("destroy");
+			$("#main_tasks li[data-task-id="+task_id+"]").find(".main_task_detail_select").selectpicker("destroy");
 			
-		// 	var main_task_pending = $("#main_tasks li[data-task-id="+task_id+"]").clone();
-		// 	$("#main_tasks li[data-task-id="+task_id+"]").remove();	
-		// 	$("#sprint_cycle_sort").prepend(main_task_pending);
+			var main_task_pending = $("#main_tasks li[data-task-id="+task_id+"]").clone();
+			$("#main_tasks li[data-task-id="+task_id+"]").remove();	
+			$("#sprint_cycle_sort").prepend(main_task_pending);
 
-		// 	$(main_task_pending).find(".check_icon .fa-check-circle-o").removeClass("fa-check-circle-o").addClass("fa-check-circle");
-		// 	$(main_task_pending).find(".main_task_detail_select").selectpicker();
-		// 	$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 3);
-		// 	$(main_task_pending).click();
-		// }
+			$(main_task_pending).find(".check_icon .fa-check-circle-o").removeClass("fa-check-circle-o").addClass("fa-check-circle");
+			$(main_task_pending).find(".main_task_detail_select").selectpicker();
+			$(main_task_pending).find(".main_task_status_select").selectpicker().selectpicker('val', 3);
+			$(main_task_pending).click();
+		}
 
 		save_changes();
 		update_main_task_index(".main_sort");
@@ -627,7 +648,7 @@ $(document).ready(function(){
 	});
 
 
-	function save_changes(){
+	function save_changes(show_console){
 		index_count = 0;
 
 		if(is_counting){
@@ -637,6 +658,7 @@ $(document).ready(function(){
 				if (index_count == 4) {
 					index_count = 0;
 					clearInterval(countInterval)
+					console.log(show_console);
 					$( "#dialog" ).dialog( "open" );
 				} 
 			}, 1000);
@@ -786,7 +808,7 @@ var main_task_template = _.template('<li data-task-id="<%= task_id %>" class="<%
 											<i class="fa fa-check-circle<%= is_checked == 1 ? "" : "-o" %> fa-lg mark_task" aria-hidden="true" ></i>\
 										</div>\
 										<div class="estimated_points">\
-											<input type="text" class="form-control" value="<%= estimated_points %> pts">\
+											<input type="text" class="form-control" value="<%= estimated_points %>" placeholder="EP">\
 										</div>\
 										<div class="main_task_status">\
 											<select name="" id="" class="selectpicker main_task_status_select">\
@@ -850,7 +872,7 @@ var sub_task_template = _.template('<li data-sub-task-id="<%= sub_task_id %>">\
 											<i class="fa fa-check-circle<%= is_checked == 1 ? "" : "-o" %> fa-lg mark_task" aria-hidden="true" ></i>\
 										</div>\
 										<div class="estimated_points">\
-											<input type="text" class="form-control" value="<%= subtask_estimated_points %> pts">\
+											<input type="text" class="form-control" value="<%= subtask_estimated_points %>" placeholder="EP">\
 										</div>\
 										<div class="main_task_status">\
 											<select name="" id="" class="selectpicker main_task_status_select">\
@@ -932,7 +954,7 @@ var main_details_template = _.template('<div id="add_sub_task">\
 							<i class="fa fa-check-circle<%= is_checked == 1 ? "" : "-o" %> fa-2x mark_task" aria-hidden="true" ></i>\
 						</div>\
 						<div id="status_and_details">\
-							<input type="text" class="form-control" value="<%= estimated_points %> pts">\
+							<input type="text" class="form-control" value="<%= estimated_points %>" placeholder="EP">\
 							<select name="" id="" class="selectpicker main_task_status_select">\
 								<option value="1" <%= task_detail == 1 ? "selected" : "" %> >Ongoing</option>\
 								<option value="2" <%= task_detail == 2 ? "selected" : "" %> >Pending</option>\
@@ -968,7 +990,7 @@ var main_details_template = _.template('<div id="add_sub_task">\
 													<i class="fa fa-check-circle<%= sub_tasks[i].is_checked == 1 ? "" : "-o" %> fa-lg mark_task" aria-hidden="true" ></i>\
 												</div>\
 												<div class="estimated_points">\
-													<input type="text" class="form-control" value="<%=sub_tasks[i].subtask_estimated_points%> pts">\
+													<input type="text" class="form-control" value="<%=sub_tasks[i].subtask_estimated_points%>"  placeholder="EP">\
 												</div>\
 												<div class="main_task_status">\
 													<select name="" id="" class="selectpicker main_task_status_select">\
@@ -1016,7 +1038,7 @@ var main_details_template = _.template('<div id="add_sub_task">\
 													<i class="fa fa-check-circle<%= sub_tasks[i].is_checked == 1 ? "" : "-o" %> fa-lg mark_task" aria-hidden="true" ></i>\
 												</div>\
 												<div class="estimated_points">\
-													<input type="text" class="form-control" value="<%=sub_tasks[i].subtask_estimated_points%> pts">\
+													<input type="text" class="form-control" value="<%=sub_tasks[i].subtask_estimated_points%>"  placeholder="EP">\
 												</div>\
 												<div class="main_task_status">\
 													<select name="" id="" class="selectpicker main_task_status_select">\
