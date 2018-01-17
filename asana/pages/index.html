@@ -23,18 +23,41 @@
 </head>
 <body>
 	<div id="wrapper">
-		<div id="left_container"></div>
+		<div id="left_container">
+			<div>
+				<h2>FT ASANA</h2>
+			</div>
+			<ul id="main_projects">
+				<li>
+					<span>Coding Dojo</span>
+					<ul>
+						<li class="sub_projects" data-project-id="1"><a href="javascript:void(0)"><span class="project_color" data-project-color="green"></span><span class="project_name">CD CRM</span></a></li>
+						<li class="sub_projects" data-project-id="2"><a href="javascript:void(0)"><span class="project_color" data-project-color="blue"></span><span class="project_name">CD Website</span></a></li>
+						<li class="sub_projects" data-project-id="5"><a href="javascript:void(0)"><span class="project_color" data-project-color="silver"></span><span class="project_name">Algorith App</span></a></li>
+						<li class="sub_projects" data-project-id="6"><a href="javascript:void(0)"><span class="project_color" data-project-color="violet"></span><span class="project_name">CD Learn</span></a></li>
+					</ul>
+				</li>
+				<li>
+					<span>Others</span>
+					<ul>
+						<li class="sub_projects" data-project-id="3"><a href="javascript:void(0)"><span class="project_color" data-project-color="pink"></span><span class="project_name">Code Generation</span></a></li>
+						<li class="sub_projects" data-project-id="7"><a href="javascript:void(0)"><span class="project_color" data-project-color="orange"></span><span class="project_name">Training Staff</span></a></li>
+						<li class="sub_projects" data-project-id="4"><a href="javascript:void(0)"><span class="project_color" data-project-color="brown"></span><span class="project_name">Focus Tracker</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 		<div id="main_container">
 			<div id="title_and_filter_content">
 				<h3>CD CRM</h3>
 				<ul id="task_details">
 					<li>
 						<span class="task_detail_option">Remaining</span>
-						<span class="task_detail_left">88 Tasks</span>
+						<span class="task_detail_left">0 tasks</span>
 					</li>
 					<li>
 						<span class="task_detail_option">Completed</span>
-						<span class="task_detail_left">57 Tasks</span>
+						<span class="task_detail_left">0 tasks</span>
 					</li>
 				</ul>
 				<form action="" id="main_task_filters" class="pull-right">
@@ -93,14 +116,11 @@
 	</div>
 	<div id="hidden_other_project" class="hidden">
 		<input type="hidden" name="task_id" value="">
-		<ul>
-		</ul>
+		<ul></ul>
 	</div>
 
 	<div id="hidden_sub_user_assignee" class="hidden">
-		<ul>
-		test
-		</ul>
+		<ul></ul>
 	</div>
 
 	<!-- Modal -->

@@ -69,48 +69,57 @@ li[data-tag-color="light_green"],
 }
 li[data-tag-color="red"],
 .dropdown-menu span[data-option-color-tag='red'],
-.bootstrap-select span[data-option-color-tag='red'] {
+.bootstrap-select span[data-option-color-tag='red'],
+span.project_color[data-project-color="red"] {
   background-color: red !important;
 }
 li[data-tag-color="blue"],
 .dropdown-menu span[data-option-color-tag='blue'],
-.bootstrap-select span[data-option-color-tag='blue'] {
-  background-color: #039BE5 !important;
+.bootstrap-select span[data-option-color-tag='blue'],
+span.project_color[data-project-color="blue"] {
+  background-color: #0000FF !important;
 }
 li[data-tag-color="green"],
 .dropdown-menu span[data-option-color-tag='green'],
-.bootstrap-select span[data-option-color-tag='green'] {
+.bootstrap-select span[data-option-color-tag='green'],
+span.project_color[data-project-color="green"] {
   background-color: green !important;
 }
 li[data-tag-color="brown"],
 .dropdown-menu span[data-option-color-tag='brown'],
-.bootstrap-select span[data-option-color-tag='brown'] {
-  background-color: #f98d2f !important;
+.bootstrap-select span[data-option-color-tag='brown'],
+span.project_color[data-project-color="brown"] {
+  background-color: #A52A2A !important;
 }
 li[data-tag-color="pink"],
 .dropdown-menu span[data-option-color-tag='pink'],
-.bootstrap-select span[data-option-color-tag='pink'] {
+.bootstrap-select span[data-option-color-tag='pink'],
+span.project_color[data-project-color="pink"] {
   background-color: #FF69B4 !important;
 }
 li[data-tag-color="yellow"],
 .dropdown-menu span[data-option-color-tag='yellow'],
-.bootstrap-select span[data-option-color-tag='yellow'] {
+.bootstrap-select span[data-option-color-tag='yellow'],
+span.project_color[data-project-color="yellow"] {
   background-color: #ffd700 !important;
 }
 li[data-tag-color="silver"],
 .dropdown-menu span[data-option-color-tag='silver'],
-.bootstrap-select span[data-option-color-tag='silver'] {
+.bootstrap-select span[data-option-color-tag='silver'],
+span.project_color[data-project-color="silver"] {
   background-color: #c2d0dc !important;
 }
 li[data-tag-color="violet"],
 .dropdown-menu span[data-option-color-tag='violet'],
-.bootstrap-select span[data-option-color-tag='violet'] {
+.bootstrap-select span[data-option-color-tag='violet'],
+span.project_color[data-project-color="violet"] {
   background-color: #ddaaff !important;
 }
 li[data-tag-color="orange"],
 .dropdown-menu span[data-option-color-tag='orange'],
-.bootstrap-select span[data-option-color-tag='orange'] {
-  background-color: #ff3c3d !important;
+.bootstrap-select span[data-option-color-tag='orange'],
+span.project_color[data-project-color="orange"] {
+  background-color: #FFA500 !important;
 }
 .dropdown-menu span[data-option-color-tag='brown'],
 .dropdown-menu span[data-option-color-tag='green'],
@@ -191,4 +200,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .fa-check-circle {
   color: green;
+}
+#hidden_other_project {
+  background-color: red;
+}
+#hidden_other_project ul {
+  display: none;
 }

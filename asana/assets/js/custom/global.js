@@ -2,15 +2,8 @@ $(document).ready(function(){
 	$("body").on("click", "#wrapper",function(){
 		$(".popover").popover("destroy");
 	});
-
+});
 	
-})
-	
-// function save_changes(){
-// 	setTimeout(function(){
-// 		$( "#dialog" ).dialog( "open" );
-// 	}, 3000)
-// }
 var projects = [
 	{
 		"name" : "CD CRM",
@@ -214,9 +207,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 3,
-		"is_checked" : 0,
+		"is_checked" : 1,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -272,9 +265,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 4,
-		"is_checked" : 0,
-		"estimated_points" : 10,
-		"task_detail" : 1,
+		"is_checked" : 1,
+		"estimated_points" : 101,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -332,7 +325,7 @@ var tasks = [
 		"task_id" : 5,
 		"is_checked" : 0,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 2,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -388,9 +381,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 6,
-		"is_checked" : 0,
+		"is_checked" : 1,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -852,9 +845,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 14,
-		"is_checked" : 0,
+		"is_checked" : 1,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -1026,9 +1019,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 17,
-		"is_checked" : 0,
+		"is_checked" : 1,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -1084,9 +1077,9 @@ var tasks = [
 	},
 	{
 		"task_id" : 18,
-		"is_checked" : 0,
+		"is_checked" : 1,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 3,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -1144,7 +1137,7 @@ var tasks = [
 		"task_id" : 19,
 		"is_checked" : 0,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 2,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",
@@ -1202,7 +1195,7 @@ var tasks = [
 		"task_id" : 20,
 		"is_checked" : 0,
 		"estimated_points" : 10,
-		"task_detail" : 1,
+		"task_detail" : 2,
 		"task_type" : 1,
 		"task_title" : "Add two other paragraphs using proper html syntax. Add whatever text you would like.",
 		"task_description" : "test description here",

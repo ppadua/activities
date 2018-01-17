@@ -8,6 +8,56 @@ html, body{
 		display: inline-block;
 		height: 97vh;
 		width: 15%;
+		color: white;
+		padding: 10px 10px;
+
+		h2{
+			margin: 0px;
+		}
+
+		>ul{
+			margin-top: 20px;
+		}
+
+		#main_projects{
+			li.active_project{
+				background-color: #008CE3;
+			}
+
+			li{
+				li{
+					padding-left: 25px;
+				}
+			}
+		}
+
+
+		ul{
+			padding: 0px;
+
+			>li{
+				>span{
+					font-size: 20px;
+				}
+
+
+				a{
+					color: white; 
+					span{
+						display: inline-block;
+						    vertical-align: middle;
+					}
+					span.project_color{
+						width: 15px;
+						height: 15px;
+						border: 2px solid white;
+					}
+					span.project_name{
+						margin-left: 10px;
+					}
+				}
+			}
+		}
 	}
 
 	#main_container{
@@ -92,15 +142,10 @@ html, body{
 							padding: 1px;
 						}
 					}
-	
-					.datetimepicker{
-						height: 25px;
-						width: 100px;
-					}
 
 					.search_filter{
-						height: 25px;
-						width: 120px;
+						height: 34px;
+   						width: 156px;
 					}
 
 					input[type=button]{

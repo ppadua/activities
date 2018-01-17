@@ -10,6 +10,51 @@ body #left_container {
   display: inline-block;
   height: 97vh;
   width: 15%;
+  color: white;
+  padding: 10px 10px;
+}
+html #left_container h2,
+body #left_container h2 {
+  margin: 0px;
+}
+html #left_container > ul,
+body #left_container > ul {
+  margin-top: 20px;
+}
+html #left_container #main_projects li.active_project,
+body #left_container #main_projects li.active_project {
+  background-color: #008CE3;
+}
+html #left_container #main_projects li li,
+body #left_container #main_projects li li {
+  padding-left: 25px;
+}
+html #left_container ul,
+body #left_container ul {
+  padding: 0px;
+}
+html #left_container ul > li > span,
+body #left_container ul > li > span {
+  font-size: 20px;
+}
+html #left_container ul > li a,
+body #left_container ul > li a {
+  color: white;
+}
+html #left_container ul > li a span,
+body #left_container ul > li a span {
+  display: inline-block;
+  vertical-align: middle;
+}
+html #left_container ul > li a span.project_color,
+body #left_container ul > li a span.project_color {
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+}
+html #left_container ul > li a span.project_name,
+body #left_container ul > li a span.project_name {
+  margin-left: 10px;
 }
 html #main_container,
 body #main_container {
@@ -96,15 +141,10 @@ html #main_container #title_and_filter_content #main_task_filters ul .bootstrap-
 body #main_container #title_and_filter_content #main_task_filters ul .bootstrap-select button {
   padding: 1px;
 }
-html #main_container #title_and_filter_content #main_task_filters ul .datetimepicker,
-body #main_container #title_and_filter_content #main_task_filters ul .datetimepicker {
-  height: 25px;
-  width: 100px;
-}
 html #main_container #title_and_filter_content #main_task_filters ul .search_filter,
 body #main_container #title_and_filter_content #main_task_filters ul .search_filter {
-  height: 25px;
-  width: 120px;
+  height: 34px;
+  width: 156px;
 }
 html #main_container #title_and_filter_content #main_task_filters ul input[type=button],
 body #main_container #title_and_filter_content #main_task_filters ul input[type=button] {
